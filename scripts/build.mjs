@@ -27,6 +27,11 @@ for (const browser of browserTargets) {
     await cp(path.join(sourceDirectory, file), path.join(targetDirectory, file));
   }
 
+  await cp(
+    path.join(projectRoot, "logo.png"),
+    path.join(targetDirectory, "icon-128.png")
+  );
+
   const manifestSource = path.join(sourceDirectory, `manifest.${browser}.json`);
   const manifest = JSON.parse(await readFile(manifestSource, "utf8"));
   await writeFile(
