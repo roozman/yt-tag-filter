@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Filter fixture</title>
+    <link rel="stylesheet" href="../../src/content.css">
+    <style>
+      body { font-family: sans-serif; }
+      ytd-rich-item-renderer,
+      ytm-shorts-lockup-view-model-v2 { display: block; padding: 8px; }
+    </style>
+    <script>
+      window.chrome = {
+        runtime: {
+          lastError: null,
+          openOptionsPage() {}
+        },
+        storage: {
+          local: {
+            get(defaults, callback) {
+              callback({
+                ...defaults,
+                tagsText: "science",
+                matchMode: "or",
+                partialMatch: false
+              });
+            }
+          },
+          onChanged: {
+            addListener() {}
+          }
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <ytd-rich-item-renderer id="matching-card">
+      <a id="video-title" href="/watch?v=abcdefghijk">Weekly Science Documentary</a>
+    </ytd-rich-item-renderer>
+
+    <ytd-rich-item-renderer id="blocked-card">
+      <a id="video-title" href="/watch?v=lmnopqrstuv">Football Highlights</a>
+    </ytd-rich-item-renderer>
+
+    <ytd-rich-item-renderer id="partial-card">
+      <a id="video-title" href="/watch?v=12345678901">Scientific Discoveries</a>
+    </ytd-rich-item-renderer>
+
+    <ytd-rich-item-renderer id="passthrough-card">A community post without a video</ytd-rich-item-renderer>
+
+    <script src="../../src/matcher.js"></script>
+    <script src="../../src/content.js"></script>
+    <script>
+      setTimeout(() => {
+        const card = document.createElement("ytm-shorts-lockup-view-model-v2");
+        card.id = "dynamic-card";
+        card.innerHTML = '<a href="/shorts/zyxwvutsrqp">Science Short</a>';
+        document.body.append(card);
+      }, 50);
+    </script>
+  </body>
+</html>
