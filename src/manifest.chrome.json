@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Tag Filter",
+  "version": "1.0.0",
+  "description": "Only show YouTube videos and Shorts that match your tags.",
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_title": "YouTube Tag Filter",
+    "default_popup": "options.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.youtube.com/*"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "js": [
+        "matcher.js",
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}

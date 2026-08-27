@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YouTube Tag Filter</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header>
+        <span class="mark" aria-hidden="true">▶</span>
+        <div>
+          <h1>YouTube Tag Filter</h1>
+          <p>Only reveal videos and Shorts that match your tags.</p>
+        </div>
+      </header>
+
+      <form id="settings-form">
+        <label class="field" for="tags">
+          <span>Allowed tags</span>
+          <textarea id="tags" name="tags" rows="5" placeholder="science&#10;documentary&#10;space exploration"></textarea>
+          <small>Enter one tag per line, or separate tags with commas. Leave empty to disable filtering.</small>
+        </label>
+
+        <label class="field" for="match-mode">
+          <span>Matching rule</span>
+          <select id="match-mode" name="matchMode">
+            <option value="or">Match any tag (OR)</option>
+            <option value="and">Match every tag (AND)</option>
+          </select>
+        </label>
+
+        <section class="switches" aria-label="Filtering options">
+          <label class="switch-row">
+            <input id="partial-match" type="checkbox">
+            <span>
+              <strong>Allow partial-text matches</strong>
+              <small>For example, “sci” will match “science”. Off uses complete words or hashtags.</small>
+            </span>
+          </label>
+
+          <label class="switch-row">
+            <input id="block-direct" type="checkbox">
+            <span>
+              <strong>Block directly opened videos</strong>
+              <small>Hide and pause the current watch-page video when it does not match.</small>
+            </span>
+          </label>
+
+          <label class="switch-row">
+            <input id="inspect-descriptions" type="checkbox">
+            <span>
+              <strong>Inspect full descriptions</strong>
+              <small>Checks descriptions when visible metadata does not match. This is slower and makes extra YouTube requests.</small>
+            </span>
+          </label>
+        </section>
+
+        <footer>
+          <span id="save-status" role="status" aria-live="polite"></span>
+          <button type="submit">Save settings</button>
+        </footer>
+      </form>
+    </main>
+
+    <script src="matcher.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>
+
