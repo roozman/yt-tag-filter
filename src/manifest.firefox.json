@@ -3,6 +3,9 @@
   "name": "YouTube Tag Filter",
   "version": "1.0.0",
   "description": "Only show YouTube videos and Shorts that match your tags.",
+  "icons": {
+    "128": "icon-128.png"
+  },
   "permissions": [
     "storage"
   ],
@@ -31,7 +34,7 @@
   ],
   "browser_specific_settings": {
     "gecko": {
-      "id": "youtube-tag-filter@local.extension",
+      "id": "{a30130c6-d136-4b94-bbd7-be74b956667f}",
       "data_collection_permissions": {
         "required": [
           "none"

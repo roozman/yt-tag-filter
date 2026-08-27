@@ -3,6 +3,9 @@
   "name": "YouTube Tag Filter",
   "version": "1.0.0",
   "description": "Only show YouTube videos and Shorts that match your tags.",
+  "icons": {
+    "128": "icon-128.png"
+  },
   "permissions": [
     "storage"
   ],
