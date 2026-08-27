@@ -87,24 +87,6 @@ html[data-yt-tag-current-state="blocked"] ytd-watch-flexy #player {
   display: none !important;
 }
 
-#yt-tag-filter-status button,
-#yt-tag-filter-blocked-overlay button {
-  flex: 0 0 auto;
-  padding: 8px 12px;
-  border: 0;
-  border-radius: 999px;
-  background: var(--yt-tag-filter-text);
-  color: #0f0f0f;
-  cursor: pointer;
-  font: inherit;
-  font-weight: 600;
-}
-
-#yt-tag-filter-status button:hover,
-#yt-tag-filter-blocked-overlay button:hover {
-  background: #fff;
-}
-
 #yt-tag-filter-blocked-overlay {
   position: fixed;
   z-index: 2147483647;

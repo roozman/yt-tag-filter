@@ -88,17 +88,6 @@
     });
   }
 
-  function openOptions() {
-    try {
-      const result = extensionApi.runtime.openOptionsPage();
-      if (result?.catch) {
-        result.catch(() => undefined);
-      }
-    } catch (error) {
-      console.warn("YouTube Tag Filter could not open its settings.", error);
-    }
-  }
-
   function extractVideoId(value) {
     if (!value) {
       return "";
@@ -408,12 +397,7 @@
     const message = document.createElement("span");
     message.textContent = "No videos on this page match your tags.";
 
-    const button = document.createElement("button");
-    button.type = "button";
-    button.textContent = "Edit tags";
-    button.addEventListener("click", openOptions);
-
-    panel.append(message, button);
+    panel.append(message);
     document.body.append(panel);
     return panel;
   }
@@ -513,12 +497,7 @@
     const message = document.createElement("p");
     message.textContent = "This video's available metadata does not match the tags in your settings.";
 
-    const button = document.createElement("button");
-    button.type = "button";
-    button.textContent = "Edit settings";
-    button.addEventListener("click", openOptions);
-
-    overlay.append(heading, message, button);
+    overlay.append(heading, message);
     document.body.append(overlay);
     return overlay;
   }
